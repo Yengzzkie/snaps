@@ -7,6 +7,7 @@ const Card = ({ props }) => {
 
       <div className="card__image-container">
         <img src={props.photo} alt={props.photoDescription} />
+        <span className="card__photographer-name">{props.photographer}</span>
       </div>
 
       <div className="card__tags-container">
