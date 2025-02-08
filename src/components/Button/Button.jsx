@@ -1,8 +1,13 @@
 import "./Button.scss";
 
-const Button = ({ text }) => {
+const Button = ({ text, onClick, setIsOpen }) => {
+
+  function handleOpen() {
+    onClick((open) => setIsOpen(!open))
+  }
+
   return (
-    <button>
+    <button onClick={handleOpen}>
       {text}
       <svg
         width="15"

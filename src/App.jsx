@@ -12,7 +12,7 @@ function App() {
           Provide photographers a space to share photos of the neighborhoods
           they cherish,{" "}
           <span className="hero__content-emphasized">
-            expressed in their unique style
+            expressed in their unique style.
           </span>
         </p>
       </div>

@@ -11,3 +11,30 @@ nav {
         font-weight: 500;
     }
 }
+
+.filter__tags-container {
+    background: $secondary-sage;
+    gap: 8px;
+    @include flex($direction: column, $align: flex-start);
+    height: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.8s ease-in-out;
+
+    .filter__header {
+        font-family: "Outfit-Medium";
+        letter-spacing: 1px;
+    }
+
+    .filter__tags {
+        @include flex($justify: start);
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    // added this class for the smooth opening transition
+    &.open {
+        height: fit-content;
+        max-height: 700px;
+    }
+}

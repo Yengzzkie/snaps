@@ -44,4 +44,34 @@ nav h1 {
   font-size: 30px;
   font-family: "Newsreader-Regular", sans-serif;
   font-weight: 500;
+}
+
+.filter__tags-container {
+  background: #E4EFEC;
+  gap: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.8s ease-in-out;
+}
+.filter__tags-container .filter__header {
+  font-family: "Outfit-Medium";
+  letter-spacing: 1px;
+}
+.filter__tags-container .filter__tags {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.filter__tags-container.open {
+  height: -moz-fit-content;
+  height: fit-content;
+  max-height: 700px;
 }/*# sourceMappingURL=Navbar.css.map */
