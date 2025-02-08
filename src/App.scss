@@ -19,4 +19,10 @@ main {
             font-family: "Newsreader-LightItalic", sans-serif;
         }
     }
+
+    .card-container {
+        gap: 16px;
+        @include flex($direction: column);
+        @include pt(64px);
+    }
 }

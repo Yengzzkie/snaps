@@ -32,16 +32,17 @@ body {
   padding-right: 16px;
 }
 
-nav {
-  height: 80px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-}
-nav h1 {
+.tag {
+  background: #FFFFFF;
   color: #0C1E1A;
-  font-size: 30px;
-  font-family: "Newsreader-Regular", sans-serif;
-  font-weight: 500;
-}/*# sourceMappingURL=Navbar.css.map */
+  font-size: 14px;
+  font-family: "Outfit-Medium", sans-serif;
+  border: 1px solid #B7CEC9;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 6px 6px 6px 6px;
+}
+.tag:hover {
+  background: #1E6655;
+  color: #FFFFFF;
+}/*# sourceMappingURL=Tags.css.map */

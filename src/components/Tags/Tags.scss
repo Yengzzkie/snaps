@@ -1,0 +1,17 @@
+@import "../../main.scss";
+
+.tag {
+    background: $secondary-white;
+    color: $primary-black;
+    font-size: 14px;
+    font-family: 'Outfit-Medium', sans-serif;
+    border: 1px solid $secondary-seagreen;
+    border-radius: 8px;
+    cursor: pointer;
+    @include p(6px);
+
+    &:hover {
+        background: $primary-forestgreen;
+        color: $secondary-white
+    }
+}
