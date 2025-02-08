@@ -1,0 +1,33 @@
+@mixin m($margin: 0px) {
+    margin: $margin $margin $margin $margin;
+}
+
+@mixin mx-auto() {
+    margin: 0 auto 0 auto;
+}
+
+@mixin my($margin: 0px) {
+    margin-top: $margin;
+    margin-bottom: $margin;
+}
+
+@mixin mx($margin: 0px) {
+    margin-left: $margin;
+    margin-right: $margin;
+}
+
+@mixin mb($margin-bottom: 0px) {
+    margin-bottom: $margin-bottom;
+}
+
+@mixin mt($margin-top: 0px) {
+    margin-top: $margin-top;
+}
+
+@mixin mb($margin-left: 0px) {
+    margin-left: $margin-left;
+}
+
+@mixin mb($margin-right: 0px) {
+    margin-right: $margin-right;
+}

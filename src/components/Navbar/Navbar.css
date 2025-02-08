@@ -27,26 +27,21 @@
 
 body {
   background: #EFFAF7;
-  color: #0C1E1A;
+  color: #1E6655;
   padding-left: 16px;
   padding-right: 16px;
 }
 
-main {
-  padding-top: 48px;
-  padding-bottom: 48px;
+nav {
+  height: 80px;
+  display: flex;
+  direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
-main .hero__header {
-  font-family: "Outfit-Light", sans-serif;
-  font-weight: 300;
-}
-main .hero__content {
-  font-family: "Newsreader-Light", sans-serif;
-  font-weight: 300;
-  font-size: 32px;
-  line-height: 54px;
-  margin-top: 24px;
-}
-main .hero__content .hero__content-emphasized {
-  font-family: "Newsreader-LightItalic", sans-serif;
-}/*# sourceMappingURL=App.css.map */
+nav h1 {
+  color: #0C1E1A;
+  font-size: 30px;
+  font-family: "Newsreader-Regular", sans-serif;
+  font-weight: 500;
+}/*# sourceMappingURL=Navbar.css.map */

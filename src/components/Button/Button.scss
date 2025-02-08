@@ -1,0 +1,28 @@
+@import "../../main.scss";
+
+button {
+  background: none;
+  color: $primary-forestgreen;
+  border: 2px solid $primary-forestgreen;
+  border-radius: 25px;
+  font-weight: normal;
+  letter-spacing: 1px;
+  gap: 8px;
+  cursor: pointer;
+  @include flex();
+  @include px(16px);
+  @include py(8px);
+
+  svg {
+    fill: $primary-forestgreen;
+  }
+
+  &:hover {
+    background: $primary-forestgreen;
+    color: $secondary-white;
+
+    svg {
+      fill: $secondary-white;
+    }
+  }
+}

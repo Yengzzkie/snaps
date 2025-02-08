@@ -32,21 +32,31 @@ body {
   padding-right: 16px;
 }
 
-main {
-  padding-top: 48px;
-  padding-bottom: 48px;
+button {
+  background: none;
+  color: #1E6655;
+  border: 2px solid #1E6655;
+  border-radius: 25px;
+  font-weight: normal;
+  letter-spacing: 1px;
+  gap: 8px;
+  cursor: pointer;
+  display: flex;
+  direction: row;
+  align-items: center;
+  justify-content: center;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
-main .hero__header {
-  font-family: "Outfit-Light", sans-serif;
-  font-weight: 300;
+button svg {
+  fill: #1E6655;
 }
-main .hero__content {
-  font-family: "Newsreader-Light", sans-serif;
-  font-weight: 300;
-  font-size: 32px;
-  line-height: 54px;
-  margin-top: 24px;
+button:hover {
+  background: #1E6655;
+  color: #FFFFFF;
 }
-main .hero__content .hero__content-emphasized {
-  font-family: "Newsreader-LightItalic", sans-serif;
-}/*# sourceMappingURL=App.css.map */
+button:hover svg {
+  fill: #FFFFFF;
+}/*# sourceMappingURL=Button.css.map */

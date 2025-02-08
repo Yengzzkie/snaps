@@ -1,0 +1,13 @@
+@import "../../main.scss";
+
+nav {
+    height: 80px;
+    @include flex($justify: space-between);
+
+    h1 {
+        color: $primary-black;
+        font-size: 30px;
+        font-family: "Newsreader-Regular", sans-serif;
+        font-weight: 500;
+    }
+}

@@ -1,0 +1,33 @@
+@mixin p($padding: 0px) {
+    padding: $padding $padding $padding $padding;
+}
+
+@mixin px-auto() {
+    padding: 0 auto 0 auto;
+}
+
+@mixin py($padding: 0px) {
+    padding-top: $padding;
+    padding-bottom: $padding;
+}
+
+@mixin px($padding: 0px) {
+    padding-left: $padding;
+    padding-right: $padding;
+}
+
+@mixin pb($padding-bottom: 0px) {
+    padding-bottom: $padding-bottom;
+}
+
+@mixin pt($padding-top: 0px) {
+    padding-top: $padding-top;
+}
+
+@mixin pb($padding-left: 0px) {
+    padding-left: $padding-left;
+}
+
+@mixin pb($padding-right: 0px) {
+    padding-right: $padding-right;
+}
