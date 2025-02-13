@@ -1,17 +1,18 @@
-@import "../../main.scss";
+@use "../../styles/partials/variables";
+@use "../../styles/partials/padding";
 
 .tag {
-    background: $secondary-white;
-    color: $primary-black;
+    background: variables.$secondary-white;
+    color: variables.$primary-black;
     font-size: 14px;
     font-family: 'Outfit-Medium', sans-serif;
-    border: 1px solid $secondary-seagreen;
+    border: 1px solid variables.$secondary-seagreen;
     border-radius: 8px;
     cursor: pointer;
-    @include p(6px);
+    @include padding.p(6px);
 
     &:hover {
-        background: $primary-forestgreen;
-        color: $secondary-white
+        background: variables.$primary-forestgreen;
+        color: variables.$secondary-white
     }
 }

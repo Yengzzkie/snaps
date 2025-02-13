@@ -1,28 +1,30 @@
-@import "../../main.scss";
+@use "../../styles/partials/variables";
+@use "../../styles/partials/padding";
+@use "../../styles/partials/mixins";
 
 button {
   background: none;
-  color: $primary-forestgreen;
-  border: 2px solid $primary-forestgreen;
+  color: variables.$primary-forestgreen;
+  border: 2px solid variables.$primary-forestgreen;
   border-radius: 25px;
   font-weight: normal;
   letter-spacing: 1px;
   gap: 8px;
   cursor: pointer;
-  @include flex();
-  @include px(16px);
-  @include py(8px);
+  @include mixins.flex();
+  @include padding.px(16px);
+  @include padding.py(8px);
 
   svg {
-    fill: $primary-forestgreen;
+    fill: variables.$primary-forestgreen;
   }
 
   &:hover {
-    background: $primary-forestgreen;
-    color: $secondary-white;
+    background: variables.$primary-forestgreen;
+    color: variables.$secondary-white;
 
     svg {
-      fill: $secondary-white;
+      fill: variables.$secondary-white;
     }
   }
 }

@@ -1,7 +1,12 @@
-@import "./main.scss";
+@use "./styles/partials/variables";
+@use "./styles/partials/padding";
+@use "./styles/partials/margin";
+@use "./styles/partials/mixins";
+@use "./styles/partials/globals";
+@use "./styles/partials/typography";
 
 main {
-    @include py(48px);
+    @include padding.py(48px);
 
     .hero__header {
         font-family: "Outfit-Light", sans-serif;
@@ -13,7 +18,7 @@ main {
         font-weight: 300;
         font-size: 32px;
         line-height: 54px;
-        @include mt(24px);
+        @include margin.mt(24px);
 
         .hero__content-emphasized {
             font-family: "Newsreader-LightItalic", sans-serif;
@@ -22,7 +27,7 @@ main {
 
     .card-container {
         gap: 16px;
-        @include flex($direction: column);
-        @include pt(64px);
+        @include mixins.flex($direction: column);
+        @include padding.pt(64px);
     }
 }

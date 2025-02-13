@@ -19,19 +19,6 @@
   font-family: "Outfit-Medium";
   src: url("../../assets/fonts/Outfit-Medium.woff") format("woff");
 }
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  background: #EFFAF7;
-  color: #0C1E1A;
-  padding-left: 16px;
-  padding-right: 16px;
-}
-
 nav {
   height: 80px;
   display: flex;
@@ -66,7 +53,7 @@ nav h1 {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: start;
+  justify-content: flex-start;
   flex-wrap: wrap;
   gap: 8px;
 }

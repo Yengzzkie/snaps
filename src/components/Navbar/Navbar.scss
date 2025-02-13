@@ -1,11 +1,15 @@
-@import "../../main.scss";
+@use "../../styles/partials/variables";
+@use "../../styles/partials/padding";
+@use "../../styles/partials/margin";
+@use "../../styles/partials/mixins";
+@use "../../styles/partials/typography";
 
 nav {
     height: 80px;
-    @include flex($justify: space-between);
+    @include mixins.flex($justify: space-between);
 
     h1 {
-        color: $primary-black;
+        color: variables.$primary-black;
         font-size: 30px;
         font-family: "Newsreader-Regular", sans-serif;
         font-weight: 500;
@@ -13,9 +17,9 @@ nav {
 }
 
 .filter__tags-container {
-    background: $secondary-sage;
+    background: variables.$secondary-sage;
     gap: 8px;
-    @include flex($direction: column, $align: flex-start);
+    @include mixins.flex($direction: column, $align: flex-start);
     height: 0;
     max-height: 0;
     overflow: hidden;
@@ -27,12 +31,12 @@ nav {
     }
 
     .filter__tags {
-        @include flex($justify: start);
+        @include mixins.flex($justify: flex-start);
         flex-wrap: wrap;
         gap: 8px;
     }
 
-    // added this class for the smooth opening transition
+    // added this class for the smooth opening transition of tags container
     &.open {
         height: fit-content;
         max-height: 700px;

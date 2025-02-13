@@ -1,0 +1,14 @@
+@use "./variables";
+@use "./padding";
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: variables.$primary-pistachio;
+    color: variables.$primary-black;
+    @include padding.px(16px);
+}

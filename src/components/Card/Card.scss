@@ -1,10 +1,12 @@
-@import "../../main.scss";
+@use "../../styles/partials/variables";
+@use "../../styles/partials/padding";
+@use "../../styles/partials/mixins";
 
 .card {
-  background: $secondary-sage;
+  background: variables.$secondary-sage;
   font-family: "Outline-Medium", sans-serif;
   width: 100%;
-  border: 1px solid $secondary-seagreen;
+  border: 1px solid variables.$secondary-seagreen;
   border-radius: 16px;
 
   .card__image-container {
@@ -24,19 +26,19 @@
     }
 
     .card__photographer-name {
-        background: $secondary-sage;
+        background: variables.$secondary-sage;
         font-size: 14px;
         position: absolute;
         bottom: 0;
         right: 0;
         border-radius: 10px 0 0 0;
-        @include p(10px);
+        @include padding.p(10px);
     }
   }
 
   .card__tags-container {
     gap: 6px;
-    @include flex($justify: start);
-    @include p(12px);
+    @include mixins.flex($justify: start);
+    @include padding.p(12px);
   }
 }

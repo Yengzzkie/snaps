@@ -1,3 +1,16 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #EFFAF7;
+  color: #0C1E1A;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
 @font-face {
   font-family: "Newsreader-Regular";
   src: url("../../assets/fonts/Newsreader-Regular.woff") format("woff");
@@ -19,19 +32,6 @@
   font-family: "Outfit-Medium";
   src: url("../../assets/fonts/Outfit-Medium.woff") format("woff");
 }
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  background: #EFFAF7;
-  color: #0C1E1A;
-  padding-left: 16px;
-  padding-right: 16px;
-}
-
 main {
   padding-top: 48px;
   padding-bottom: 48px;
