@@ -7,8 +7,6 @@
 body {
   background: #EFFAF7;
   color: #0C1E1A;
-  padding-left: 16px;
-  padding-right: 16px;
 }
 
 @font-face {
@@ -35,6 +33,8 @@ body {
 main {
   padding-top: 48px;
   padding-bottom: 48px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 main .hero__header {
   font-family: "Outfit-Light", sans-serif;

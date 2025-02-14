@@ -25,6 +25,8 @@ nav {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 nav h1 {
   color: #0C1E1A;
@@ -40,10 +42,11 @@ nav h1 {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+  padding: 16px 16px 16px 16px;
   height: 0;
   max-height: 0;
   overflow: hidden;
-  transition: all 0.8s ease-in-out;
+  transition: max-height 0.8s ease-in-out;
 }
 .filter__tags-container .filter__header {
   font-family: "Outfit-Medium";

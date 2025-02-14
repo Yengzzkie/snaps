@@ -7,6 +7,7 @@
 nav {
     height: 80px;
     @include mixins.flex($justify: space-between);
+    @include padding.px(16px);
 
     h1 {
         color: variables.$primary-black;
@@ -20,10 +21,11 @@ nav {
     background: variables.$secondary-sage;
     gap: 8px;
     @include mixins.flex($direction: column, $align: flex-start);
+    @include padding.p(16px);
     height: 0;
     max-height: 0;
     overflow: hidden;
-    transition: all 0.8s ease-in-out;
+    transition: max-height 0.8s ease-in-out;
 
     .filter__header {
         font-family: "Outfit-Medium";

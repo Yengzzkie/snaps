@@ -1,13 +1,13 @@
 import "./Button.scss";
 
-const Button = ({ text, onClick, setIsOpen }) => {
-
+const Button = ({ text, onClick, setIsOpen, isOpen }) => {
+console.log(isOpen)
   function handleOpen() {
     onClick((open) => setIsOpen(!open))
   }
 
   return (
-    <button onClick={handleOpen}>
+    <button onClick={handleOpen} className={`${isOpen ? "active" : ""}`}>
       {text}
       <svg
         width="15"

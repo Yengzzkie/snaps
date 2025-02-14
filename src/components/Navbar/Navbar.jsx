@@ -12,26 +12,32 @@ const Navbar = ({ selectedTag, getSelectedTag }) => {
     setIsOpen(!isOpen);
   }
   function selectedTagHandler(tag) {
-    getSelectedTag(tag)
+    getSelectedTag(tag);
   }
 
   return (
     <>
       <nav>
         <h1>Snaps</h1>
-        <Button text={"Filters"} onClick={openFilter} />
+        <Button text={"Filters"} isOpen={isOpen} onClick={openFilter} />
       </nav>
 
-      <div className={`filter__tags-container ${isOpen ? "open" : ""}`}>
-        <h2 className="filter__header">Filters</h2>
-        <div className="filter__tags">
-          {tags.map((tag, index) => (
-            <div key={index} onClick={() => selectedTagHandler(tag)} className={`tag ${selectedTag.includes(tag) ? "selected" : ""}`}>
-              <Tags text={tag} selected={selectedTag.includes(tag)} />
-            </div>
-          ))}
+      {isOpen && (
+        <div className={`filter__tags-container ${isOpen ? "open" : ""}`}>
+          <h2 className="filter__header">Filters</h2>
+          <div className="filter__tags">
+            {tags.map((tag, index) => (
+              <div
+                key={index}
+                onClick={() => selectedTagHandler(tag)}
+                className={`tag ${selectedTag.includes(tag) ? "selected" : ""}`}
+              >
+                <Tags text={tag} selected={selectedTag.includes(tag)} />
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
 };

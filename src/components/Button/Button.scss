@@ -28,3 +28,12 @@ button {
     }
   }
 }
+
+.active {
+  background: variables.$primary-forestgreen;
+  color: variables.$secondary-white;
+
+  svg {
+    fill: variables.$secondary-white;
+  }
+}
