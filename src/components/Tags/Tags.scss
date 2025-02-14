@@ -16,3 +16,8 @@
         color: variables.$secondary-white
     }
 }
+
+.selected {
+    background: variables.$primary-forestgreen;
+    color: variables.$secondary-white;
+}

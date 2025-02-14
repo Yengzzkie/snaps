@@ -1,7 +1,7 @@
-import "./Tags.scss"
+import "./Tags.scss";
 
 const Tags = ({ text }) => {
-  return <span className="tag">{text}</span>;
+  return <span>{text}</span>;
 };
 
 export default Tags;

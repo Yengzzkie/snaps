@@ -11,4 +11,9 @@
 .tag:hover {
   background: #1E6655;
   color: #FFFFFF;
+}
+
+.selected {
+  background: #1E6655;
+  color: #FFFFFF;
 }/*# sourceMappingURL=Tags.css.map */

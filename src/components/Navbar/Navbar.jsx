@@ -4,11 +4,15 @@ import Button from "../Button/Button";
 import tags from "../../data/tags.json";
 import Tags from "../Tags/Tags";
 
-const Navbar = () => {
+const Navbar = ({ selectedTag, getSelectedTag }) => {
   const [isOpen, setIsOpen] = useState(false);
 
+  // logic for opening and closing the filter tags dropdown
   function openFilter() {
     setIsOpen(!isOpen);
+  }
+  function selectedTagHandler(tag) {
+    getSelectedTag(tag)
   }
 
   return (
@@ -22,7 +26,9 @@ const Navbar = () => {
         <h2 className="filter__header">Filters</h2>
         <div className="filter__tags">
           {tags.map((tag, index) => (
-            <Tags key={index} text={tag} />
+            <div key={index} onClick={() => selectedTagHandler(tag)} className={`tag ${selectedTag.includes(tag) ? "selected" : ""}`}>
+              <Tags text={tag} selected={selectedTag.includes(tag)} />
+            </div>
           ))}
         </div>
       </div>
