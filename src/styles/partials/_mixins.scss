@@ -5,6 +5,11 @@
   justify-content: $justify;
 }
 
+@mixin grid($grid-cols: 1fr) {
+  display: grid;
+  grid-template-columns: $grid-cols;
+}
+
 @mixin tablet {
   @media (min-width: 768px) and (max-width: 1279px) {
     @content;

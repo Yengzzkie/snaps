@@ -9,6 +9,10 @@ main {
     @include padding.py(48px);
     @include padding.px(16px);
 
+    @include mixins.tablet {
+        @include padding.px(24px)
+    }
+
     .hero__header {
         font-family: "Outfit-Light", sans-serif;
         font-weight: 300;
@@ -24,11 +28,20 @@ main {
         .hero__content-emphasized {
             font-family: "Newsreader-LightItalic", sans-serif;
         }
+
+        @include mixins.tablet {
+            font-size: 52px;
+            line-height: 66px;
+        }
     }
 
     .card-container {
         gap: 16px;
-        @include mixins.flex($direction: column);
+        @include mixins.grid($grid-cols: 1fr);
         @include padding.pt(64px);
+
+        @include mixins.tablet {
+            @include mixins.grid($grid-cols: 1fr 1fr)
+        }
     }
 }

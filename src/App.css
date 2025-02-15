@@ -36,6 +36,12 @@ main {
   padding-left: 16px;
   padding-right: 16px;
 }
+@media (min-width: 768px) and (max-width: 1279px) {
+  main {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
 main .hero__header {
   font-family: "Outfit-Light", sans-serif;
   font-weight: 300;
@@ -50,11 +56,21 @@ main .hero__content {
 main .hero__content .hero__content-emphasized {
   font-family: "Newsreader-LightItalic", sans-serif;
 }
+@media (min-width: 768px) and (max-width: 1279px) {
+  main .hero__content {
+    font-size: 52px;
+    line-height: 66px;
+  }
+}
 main .card-container {
   gap: 16px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr;
   padding-top: 64px;
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  main .card-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 }/*# sourceMappingURL=App.css.map */

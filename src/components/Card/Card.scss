@@ -37,7 +37,7 @@
   }
 
   .card__tags-container {
-    gap: 6px;
+    gap: 8px;
     @include mixins.flex($justify: start);
     @include padding.p(12px);
   }

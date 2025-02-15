@@ -31,7 +31,7 @@
   padding: 10px 10px 10px 10px;
 }
 .card .card__tags-container {
-  gap: 6px;
+  gap: 8px;
   display: flex;
   flex-direction: row;
   align-items: center;
