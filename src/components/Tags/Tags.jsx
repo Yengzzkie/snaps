@@ -1,8 +1,8 @@
 import "./Tags.scss";
 
-const Tags = ({ text }) => {
+const Tags = ({ text, cn }) => {
   return (
-    <div className="tag">
+    <div className={cn}>
       <span>{text}</span>
     </div>
   );

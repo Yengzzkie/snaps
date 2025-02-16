@@ -28,12 +28,9 @@ const Navbar = ({ selectedTag, getSelectedTag }) => {
           <h2 className="filter__header">Filters</h2>
           <div className="filter__tags">
             {tags.map((tag, index) => (
-              <div
-                key={index}
-                onClick={() => selectedTagHandler(tag)}
-                className={`${selectedTag.includes(tag) ? "selected" : ""}`}
-              >
-                <Tags text={tag} selected={selectedTag.includes(tag)} />
+              <div key={index} onClick={() => selectedTagHandler(tag)}>
+                {/* add a conditional classname (selected) for selected tags */}
+                <Tags text={tag} cn={`clickable-tag ${selectedTag.includes(tag) ? "selected" : ""}`} selected={selectedTag.includes(tag)} />
               </div>
             ))}
           </div>

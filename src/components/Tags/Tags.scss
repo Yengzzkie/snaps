@@ -2,13 +2,14 @@
 @use "../../styles/partials/padding";
 @use "../../styles/partials/mixins";
 
-.tag {
+// styles for clickable tag (filter tags)
+.clickable-tag {
     background: variables.$secondary-white;
-    color: variables.$primary-black;
+    color: variables.$primary-forestgreen;
     font-size: 14px;
     font-family: 'Outfit-Medium', sans-serif;
-    border: 1px solid variables.$secondary-seagreen;
-    border-radius: 12px;
+    border: 1px solid variables.$primary-forestgreen;
+    border-radius: 8px;
     cursor: pointer;
     @include padding.py(6px);
     @include padding.px(8px);
@@ -32,4 +33,32 @@
 .selected {
     background: variables.$primary-forestgreen;
     color: variables.$secondary-white;
+}
+
+// // styles for NON-clickable tag (card tags)
+.non-clickable-tag {
+    background: variables.$secondary-white;
+    color: variables.$primary-black;
+    font-size: 14px;
+    font-family: 'Outfit-Medium', sans-serif;
+    border: 1px solid variables.$secondary-seagreen;
+    border-radius: 8px;
+    cursor: pointer;
+    @include padding.py(6px);
+    @include padding.px(8px);
+
+    &:hover {
+        background: variables.$secondary-seagreen;
+    }
+
+    @include mixins.tablet {
+        @include padding.py(8px);
+        @include padding.px(12px);
+    }
+
+    @include mixins.desktop {
+        border-radius: 12px;
+        @include padding.py(8px);
+        @include padding.px(12px);
+    }
 }

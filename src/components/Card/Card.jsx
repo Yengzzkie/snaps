@@ -12,7 +12,7 @@ const Card = ({ props }) => {
 
       <div className="card__tags-container">
         {props.tags.map((tag, index) => (
-          <Tags key={index} text={tag} />
+          <Tags key={index} cn={"non-clickable-tag"} text={tag} />
         ))}
       </div>
 
