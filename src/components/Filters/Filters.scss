@@ -1,0 +1,54 @@
+@use "../../styles/partials/variables";
+@use "../../styles/partials/padding";
+@use "../../styles/partials/margin";
+@use "../../styles/partials/mixins";
+
+.tags__wrapper {
+    @include mixins.desktop {
+        align-self: stretch;
+    }
+
+  .filter__tags-container {
+    background: variables.$secondary-sage;
+    gap: 8px;
+    @include mixins.flex($direction: column, $align: flex-start);
+    @include padding.p(16px);
+    height: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.8s ease-in-out;
+
+    .filter__header {
+      font-family: "Outfit-Medium";
+      letter-spacing: 1px;
+    }
+
+    .filter__tags {
+      @include mixins.flex($justify: flex-start);
+      flex-wrap: wrap;
+      gap: 8px;
+
+      @include mixins.desktop() {
+        gap: 12px;
+        @include margin.mt(40px);
+    }
+    }
+
+    // added this class for the smooth opening transition of tags container
+    &.open {
+      height: fit-content;
+      max-height: 700px;
+
+      @include mixins.desktop() {
+        max-width: 40vw;
+        height: 100%;
+        max-height: 100%;
+      }
+    }
+
+    @include mixins.desktop() {
+        @include padding.p(48px);
+        @include mixins.flex($justify: unset, $align: unset, $direction: column)
+    }
+  }
+}

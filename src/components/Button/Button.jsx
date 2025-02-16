@@ -1,7 +1,6 @@
 import "./Button.scss";
 
 const Button = ({ text, onClick, setIsOpen, isOpen }) => {
-console.log(isOpen)
   function handleOpen() {
     onClick((open) => setIsOpen(!open))
   }

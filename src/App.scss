@@ -6,57 +6,69 @@
 @use "./styles/partials/typography";
 
 main {
+    @include mixins.desktop {
+        min-height: 100vh;
+        @include mixins.flex($direction: row-reverse, $align: flex-start);
+      }
+
+  .container {
+    width: 100%;
     @include padding.py(48px);
     @include padding.px(16px);
 
     @include mixins.tablet {
-        @include padding.px(24px)
+      @include padding.px(24px);
     }
 
     @include mixins.desktop {
-        @include padding.px(24px)
+      @include padding.px(24px);
     }
 
     .hero__header {
-        font-family: "Outfit-Light", sans-serif;
-        font-weight: 300;
+      font-family: "Outfit-Light", sans-serif;
+      font-weight: 300;
+
+      @include mixins.desktop {
+        font-size: 20px;
+      }
     }
 
     .hero__content {
-        font-family: "Newsreader-Light", sans-serif;
-        font-weight: 300;
-        font-size: 32px;
-        line-height: 54px;
-        @include margin.mt(24px);
+      font-family: "Newsreader-Light", sans-serif;
+      font-weight: 300;
+      font-size: 32px;
+      line-height: 54px;
+      @include margin.mt(24px);
 
-        .hero__content-emphasized {
-            font-family: "Newsreader-LightItalic", sans-serif;
-        }
+      .hero__content-emphasized {
+        font-family: "Newsreader-LightItalic", sans-serif;
+      }
 
-        @include mixins.tablet {
-            font-size: 52px;
-            line-height: 66px;
-        }
+      @include mixins.tablet {
+        font-size: 52px;
+        line-height: 66px;
+      }
 
-        @include mixins.desktop {
-            font-size: 52px;
-            line-height: 66px;
-            width: 50%;
-        }
+      @include mixins.desktop {
+        font-size: 52px;
+        line-height: 66px;
+        max-width: 50vw;
+      }
     }
 
     .card-container {
-        gap: 16px;
-        @include mixins.grid($grid-cols: 1fr);
-        @include padding.pt(64px);
+      gap: 16px;
+      @include mixins.grid($grid-cols: 1fr);
+      @include padding.pt(64px);
 
-        @include mixins.tablet {
-            @include mixins.grid($grid-cols: 1fr 1fr)
-        }
+      @include mixins.tablet {
+        @include mixins.grid($grid-cols: 1fr 1fr);
+      }
 
-        @include mixins.desktop {
-            @include mixins.grid($grid-cols: 1fr 1fr 1fr);
-            gap: 24px;
-        }
+      @include mixins.desktop {
+        @include mixins.grid($grid-cols: 1fr 1fr 1fr);
+        gap: 24px;
+      }
     }
+  }
 }
