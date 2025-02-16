@@ -1,7 +1,11 @@
 import "./Tags.scss";
 
 const Tags = ({ text }) => {
-  return <span>{text}</span>;
+  return (
+    <div className="tag">
+      <span>{text}</span>
+    </div>
+  );
 };
 
 export default Tags;

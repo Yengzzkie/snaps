@@ -11,6 +11,7 @@ const Navbar = ({ selectedTag, getSelectedTag }) => {
   function openFilter() {
     setIsOpen(!isOpen);
   }
+
   function selectedTagHandler(tag) {
     getSelectedTag(tag);
   }
@@ -30,7 +31,7 @@ const Navbar = ({ selectedTag, getSelectedTag }) => {
               <div
                 key={index}
                 onClick={() => selectedTagHandler(tag)}
-                className={`tag ${selectedTag.includes(tag) ? "selected" : ""}`}
+                className={`${selectedTag.includes(tag) ? "selected" : ""}`}
               >
                 <Tags text={tag} selected={selectedTag.includes(tag)} />
               </div>

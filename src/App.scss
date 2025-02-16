@@ -13,6 +13,10 @@ main {
         @include padding.px(24px)
     }
 
+    @include mixins.desktop {
+        @include padding.px(24px)
+    }
+
     .hero__header {
         font-family: "Outfit-Light", sans-serif;
         font-weight: 300;
@@ -51,7 +55,8 @@ main {
         }
 
         @include mixins.desktop {
-            @include mixins.grid($grid-cols: 1fr 1fr 1fr)
+            @include mixins.grid($grid-cols: 1fr 1fr 1fr);
+            gap: 24px;
         }
     }
 }

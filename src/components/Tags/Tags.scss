@@ -1,5 +1,6 @@
 @use "../../styles/partials/variables";
 @use "../../styles/partials/padding";
+@use "../../styles/partials/mixins";
 
 .tag {
     background: variables.$secondary-white;
@@ -7,13 +8,24 @@
     font-size: 14px;
     font-family: 'Outfit-Medium', sans-serif;
     border: 1px solid variables.$secondary-seagreen;
-    border-radius: 8px;
+    border-radius: 12px;
     cursor: pointer;
-    @include padding.p(6px);
+    @include padding.py(6px);
+    @include padding.px(8px);
 
     &:hover {
         background: variables.$primary-forestgreen;
         color: variables.$secondary-white
+    }
+
+    @include mixins.tablet {
+        @include padding.py(8px);
+        @include padding.px(12px);
+    }
+
+    @include mixins.desktop {
+        @include padding.py(8px);
+        @include padding.px(12px);
     }
 }
 
