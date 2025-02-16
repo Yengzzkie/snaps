@@ -33,6 +33,12 @@ main {
             font-size: 52px;
             line-height: 66px;
         }
+
+        @include mixins.desktop {
+            font-size: 52px;
+            line-height: 66px;
+            width: 50%;
+        }
     }
 
     .card-container {
@@ -42,6 +48,10 @@ main {
 
         @include mixins.tablet {
             @include mixins.grid($grid-cols: 1fr 1fr)
+        }
+
+        @include mixins.desktop {
+            @include mixins.grid($grid-cols: 1fr 1fr 1fr)
         }
     }
 }
