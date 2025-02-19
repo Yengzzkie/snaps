@@ -1,5 +1,6 @@
 import "./Navbar.scss";
 import Button from "../Button/Button";
+import { Link } from "react-router-dom";
 
 const Navbar = ({ isOpen, setIsOpen }) => {
   
@@ -10,7 +11,7 @@ const Navbar = ({ isOpen, setIsOpen }) => {
 
   return (
     <nav>
-      <h1>Snaps</h1>
+      <h1><Link to={"/"}>Snaps</Link></h1>
       <Button text={"Filters"} isOpen={isOpen} onClick={openFilter} />
     </nav>
   );

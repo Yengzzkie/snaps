@@ -28,7 +28,7 @@ const Footer = () => {
   return (
     <footer>
       <div className="header_services-wrapper">
-        <h1 className="footer__header">Snaps</h1>
+        <h1 className="footer__header"><Link to={"/"}>Snaps</Link></h1>
 
         <div className="footer__metalinks-wrapper">
           <div className="services-wrapper">
