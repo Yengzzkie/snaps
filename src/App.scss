@@ -68,6 +68,10 @@ main {
       @include mixins.desktop {
         @include mixins.grid($grid-cols: 1fr 1fr 1fr);
         gap: 24px;
+
+        &.two-cols {
+          @include mixins.grid($grid-cols: 1fr 1fr);
+        }
       }
     }
   }

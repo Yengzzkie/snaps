@@ -47,7 +47,7 @@ function App() {
             </p>
           </section>
 
-          <section className="card-container">
+          <section className={`card-container ${isOpen ? "two-cols" : ""}`}>
             {filteredPhotos.map((photo) => (
               <Card key={photo.id} props={photo} />
             ))}

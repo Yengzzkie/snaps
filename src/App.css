@@ -113,4 +113,8 @@ main .container .card-container {
     grid-template-columns: 1fr 1fr 1fr;
     gap: 24px;
   }
+  main .container .card-container.two-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 }/*# sourceMappingURL=App.css.map */
