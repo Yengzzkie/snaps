@@ -9,6 +9,11 @@ body {
   color: #0C1E1A;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 @font-face {
   font-family: "Newsreader-Regular";
   src: url("../../assets/fonts/Newsreader-Regular.woff") format("woff");

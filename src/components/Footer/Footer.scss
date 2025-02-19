@@ -1,0 +1,63 @@
+@use "../../styles/partials/variables";
+@use "../../styles/partials/padding";
+@use "../../styles/partials/margin";
+@use "../../styles/partials/mixins";
+@use "../../styles/partials/typography";
+
+footer {
+  @include padding.px(16px);
+  @include padding.py(16px);
+  line-height: 32px;
+
+  .footer__header {
+    font-size: 40px;
+    font-family: "Newsreader-Regular", sans-serif;
+    font-weight: 300;
+    @include margin.my(40px);
+  }
+
+  .services-links,
+  .company-links {
+    font-family: "Outfit-Medium", sans-serif;
+    cursor: pointer;
+    @include margin.mb(32px);
+
+    .links {
+      &:hover {
+        color: variables.$primary-forestgreen;
+      }
+    }
+  }
+
+  .footer__icons {
+    @include mixins.flex($justify: flex-start);
+    gap: 16px;
+    @include padding.py(8px);
+
+    svg path {
+      cursor: pointer;
+
+      &:hover {
+        fill: variables.$secondary-seagreen;
+      }
+    }
+  }
+
+  .footer__copyright {
+    color: variables.$secondary-seagreen;
+    font-family: "Outfit-Medium", sans-serif;
+    @include mixins.flex($justify: flex-start);
+    gap: 24px;
+
+    .footer__privacy {
+
+      .links {
+        @include margin.mr(12px);
+
+        &:hover {
+          color: variables.$primary-forestgreen;
+        }
+      }
+    }
+  }
+}

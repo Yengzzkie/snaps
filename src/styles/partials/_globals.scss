@@ -2,13 +2,18 @@
 @use "./padding";
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    background: variables.$primary-pistachio;
-    color: variables.$primary-black;
-    // @include padding.px(16px);
+  background: variables.$primary-pistachio;
+  color: variables.$primary-black;
+  // @include padding.px(16px);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }

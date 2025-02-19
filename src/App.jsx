@@ -2,6 +2,7 @@ import "./App.css";
 import photos from "./data/photos.json";
 import Card from "./components/Card/Card";
 import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
 import { useState, useEffect } from "react";
 import Filters from "./components/Filters/Filters";
 
@@ -21,7 +22,6 @@ function App() {
     } else {
       setSelectedTag([...selectedTag, tag]); // if it doesnt exist yet, add it to the array
     }
-
   }
 
   useEffect(() => {
@@ -30,7 +30,8 @@ function App() {
 
   return (
     <>
-      <Navbar isOpen={isOpen} setIsOpen={setIsOpen} selectedTag={selectedTag} getSelectedTag={getSelectedTag} />
+      {/* pass the isOpen state variable and setIsOpen for navbar to handle the opening of the filter dropdown */}
+      <Navbar isOpen={isOpen} setIsOpen={setIsOpen} /> 
 
       <main>
         <Filters isOpen={isOpen} selectedTag={selectedTag} getSelectedTag={getSelectedTag} />
@@ -53,6 +54,7 @@ function App() {
           </section>
         </div>
       </main>
+      <Footer />
     </>
   );
 }

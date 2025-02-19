@@ -24,10 +24,10 @@
     padding-top: $padding-top;
 }
 
-@mixin pb($padding-left: 0px) {
+@mixin pl($padding-left: 0px) {
     padding-left: $padding-left;
 }
 
-@mixin pb($padding-right: 0px) {
+@mixin pr($padding-right: 0px) {
     padding-right: $padding-right;
 }

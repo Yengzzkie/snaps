@@ -24,10 +24,10 @@
     margin-top: $margin-top;
 }
 
-@mixin mb($margin-left: 0px) {
+@mixin ml($margin-left: 0px) {
     margin-left: $margin-left;
 }
 
-@mixin mb($margin-right: 0px) {
+@mixin mr($margin-right: 0px) {
     margin-right: $margin-right;
 }
