@@ -117,4 +117,8 @@ main .container .card-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
+}
+main .container .card-container .no-result-text {
+  font-size: 32px;
+  text-align: center;
 }/*# sourceMappingURL=App.css.map */

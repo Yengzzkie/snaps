@@ -73,6 +73,11 @@ main {
           @include mixins.grid($grid-cols: 1fr 1fr);
         }
       }
+
+      .no-result-text {
+        font-size: 32px;
+        text-align: center;
+      }
     }
   }
 }
