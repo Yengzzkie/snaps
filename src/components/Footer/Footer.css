@@ -26,21 +26,50 @@ footer {
   padding-bottom: 16px;
   line-height: 32px;
 }
-footer .footer__header {
+@media (min-width: 768px) and (max-width: 1279px) {
+  footer .header_services-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    line-height: 32px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) and (min-width: 768px) and (max-width: 1279px) {
+  footer .header_services-wrapper {
+    padding-bottom: 96px;
+  }
+}
+footer .header_services-wrapper .footer__header {
   font-size: 40px;
   font-family: "Newsreader-Regular", sans-serif;
   font-weight: 300;
   margin-top: 40px;
   margin-bottom: 40px;
 }
-footer .services-links,
-footer .company-links {
+@media (min-width: 768px) and (max-width: 1279px) {
+  footer .header_services-wrapper .footer__header {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  footer .header_services-wrapper .services-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+  }
+}
+footer .header_services-wrapper .services-wrapper .services-links,
+footer .header_services-wrapper .services-wrapper .company-links {
   font-family: "Outfit-Medium", sans-serif;
   cursor: pointer;
   margin-bottom: 32px;
 }
-footer .services-links .links:hover,
-footer .company-links .links:hover {
+footer .header_services-wrapper .services-wrapper .services-links .links:hover,
+footer .header_services-wrapper .services-wrapper .company-links .links:hover {
   color: #1E6655;
 }
 footer .footer__icons {

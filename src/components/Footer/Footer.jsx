@@ -27,38 +27,44 @@ const copyrightLinks = [
 const Footer = () => {
   return (
     <footer>
-      <h1 className="footer__header">Snaps</h1>
+      <div className="header_services-wrapper">
+        <h1 className="footer__header">Snaps</h1>
 
-      <div className="services-links">
-        {footerLinks.services?.map((link) => (
-          <p className="links" key={link.text}>
-            {link.text}
-          </p>
-        ))}
+        <div className="services-wrapper">
+          <div className="services-links">
+            {footerLinks.services?.map((link) => (
+              <p className="links" key={link.text}>
+                {link.text}
+              </p>
+            ))}
+          </div>
+          <div className="company-links">
+            {footerLinks.company?.map((link) => (
+              <p className="links" key={link.text}>
+                {link.text}
+              </p>
+            ))}
+          </div>
+        </div>
       </div>
 
-      <div className="company-links">
-        {footerLinks.company?.map((link) => (
-          <p className="links" key={link.text}>
-            {link.text}
-          </p>
-        ))}
-      </div>
+      <div>
+        <div className="footer__icons">
+          <Facebook />
+          <X />
+          <Instagram />
+          <Pinterest />
+        </div>
 
-      <div className="footer__icons">
-        <Facebook />
-        <X />
-        <Instagram />
-        <Pinterest />
-      </div>
-
-      <div className="footer__copyright">
-        <p>&copy; {new Date().getFullYear()} Snaps</p>
-
-        <div className="footer__privacy">
-          {copyrightLinks.map((link) => (
-            <Link key={link.text} to={link.link} className="links">{link.text}</Link>
-          ))}
+        <div className="footer__copyright">
+          <p>&copy; {new Date().getFullYear()} Snaps</p>
+          <div className="footer__privacy">
+            {copyrightLinks.map((link) => (
+              <Link key={link.text} to={link.link} className="links">
+                {link.text}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </footer>

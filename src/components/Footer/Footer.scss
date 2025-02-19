@@ -9,22 +9,44 @@ footer {
   @include padding.py(16px);
   line-height: 32px;
 
-  .footer__header {
-    font-size: 40px;
-    font-family: "Newsreader-Regular", sans-serif;
-    font-weight: 300;
-    @include margin.my(40px);
-  }
+  .header_services-wrapper {
+    @include mixins.tablet {
+      @include mixins.flex($align: flex-start, $justify: space-between);
+      line-height: 32px;
 
-  .services-links,
-  .company-links {
-    font-family: "Outfit-Medium", sans-serif;
-    cursor: pointer;
-    @include margin.mb(32px);
+      @include mixins.tablet {
+        @include padding.pb(96px);
+      }
+    }
 
-    .links {
-      &:hover {
-        color: variables.$primary-forestgreen;
+    .footer__header {
+      font-size: 40px;
+      font-family: "Newsreader-Regular", sans-serif;
+      font-weight: 300;
+      @include margin.my(40px);
+
+      @include mixins.tablet {
+        @include margin.my(20px);
+      }
+    }
+
+    .services-wrapper {
+      @include mixins.tablet {
+        @include mixins.flex($justify: space-between);
+        gap: 60px;
+      }
+
+      .services-links,
+      .company-links {
+        font-family: "Outfit-Medium", sans-serif;
+        cursor: pointer;
+        @include margin.mb(32px);
+
+        .links {
+          &:hover {
+            color: variables.$primary-forestgreen;
+          }
+        }
       }
     }
   }
@@ -50,7 +72,6 @@ footer {
     gap: 24px;
 
     .footer__privacy {
-
       .links {
         @include margin.mr(12px);
 
