@@ -5,7 +5,7 @@
 @use "../../styles/partials/typography";
 
 footer {
-  @include padding.px(16px);
+  @include padding.px(24px);
   @include padding.py(16px);
   line-height: 32px;
 
@@ -15,6 +15,14 @@ footer {
       line-height: 32px;
 
       @include mixins.tablet {
+        @include padding.pb(96px);
+      }
+    }
+    @include mixins.desktop {
+      @include mixins.flex($align: flex-start, $justify: space-between);
+      line-height: 32px;
+
+      @include mixins.desktop {
         @include padding.pb(96px);
       }
     }
@@ -28,23 +36,54 @@ footer {
       @include mixins.tablet {
         @include margin.my(20px);
       }
+      @include mixins.desktop {
+        @include margin.my(20px);
+      }
     }
 
-    .services-wrapper {
-      @include mixins.tablet {
-        @include mixins.flex($justify: space-between);
+    .footer__metalinks-wrapper {
+      @include mixins.desktop {
+        @include mixins.flex($align: flex-start);
         gap: 60px;
       }
 
-      .services-links,
-      .company-links {
-        font-family: "Outfit-Medium", sans-serif;
-        cursor: pointer;
-        @include margin.mb(32px);
+      .services-wrapper {
+        @include mixins.tablet {
+          @include mixins.flex($justify: space-between);
+          gap: 60px;
+        }
+        @include mixins.desktop {
+          @include mixins.flex($justify: space-between);
+          gap: 60px;
+        }
 
-        .links {
+        .services-links,
+        .company-links {
+          font-family: "Outfit-Medium", sans-serif;
+          cursor: pointer;
+          @include margin.mb(32px);
+
+          .links {
+            &:hover {
+              color: variables.$primary-forestgreen;
+            }
+          }
+        }
+      }
+
+      .footer__icons {
+        display: none;
+        @include mixins.desktop {
+          @include mixins.flex($justify: flex-start);
+          gap: 16px;
+          @include padding.py(8px);
+        }
+
+        svg path {
+          cursor: pointer;
+
           &:hover {
-            color: variables.$primary-forestgreen;
+            fill: variables.$secondary-seagreen;
           }
         }
       }
@@ -55,6 +94,9 @@ footer {
     @include mixins.flex($justify: flex-start);
     gap: 16px;
     @include padding.py(8px);
+    @include mixins.desktop {
+      display: none;
+    }
 
     svg path {
       cursor: pointer;

@@ -20,8 +20,8 @@
   src: url("../../assets/fonts/Outfit-Medium.woff") format("woff");
 }
 footer {
-  padding-left: 16px;
-  padding-right: 16px;
+  padding-left: 24px;
+  padding-right: 24px;
   padding-top: 16px;
   padding-bottom: 16px;
   line-height: 32px;
@@ -40,6 +40,20 @@ footer {
     padding-bottom: 96px;
   }
 }
+@media (min-width: 1280px) {
+  footer .header_services-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    line-height: 32px;
+  }
+}
+@media (min-width: 1280px) and (min-width: 1280px) {
+  footer .header_services-wrapper {
+    padding-bottom: 96px;
+  }
+}
 footer .header_services-wrapper .footer__header {
   font-size: 40px;
   font-family: "Newsreader-Regular", sans-serif;
@@ -53,8 +67,23 @@ footer .header_services-wrapper .footer__header {
     margin-bottom: 20px;
   }
 }
+@media (min-width: 1280px) {
+  footer .header_services-wrapper .footer__header {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+@media (min-width: 1280px) {
+  footer .header_services-wrapper .footer__metalinks-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 60px;
+  }
+}
 @media (min-width: 768px) and (max-width: 1279px) {
-  footer .header_services-wrapper .services-wrapper {
+  footer .header_services-wrapper .footer__metalinks-wrapper .services-wrapper {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -62,15 +91,44 @@ footer .header_services-wrapper .footer__header {
     gap: 60px;
   }
 }
-footer .header_services-wrapper .services-wrapper .services-links,
-footer .header_services-wrapper .services-wrapper .company-links {
+@media (min-width: 1280px) {
+  footer .header_services-wrapper .footer__metalinks-wrapper .services-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+  }
+}
+footer .header_services-wrapper .footer__metalinks-wrapper .services-wrapper .services-links,
+footer .header_services-wrapper .footer__metalinks-wrapper .services-wrapper .company-links {
   font-family: "Outfit-Medium", sans-serif;
   cursor: pointer;
   margin-bottom: 32px;
 }
-footer .header_services-wrapper .services-wrapper .services-links .links:hover,
-footer .header_services-wrapper .services-wrapper .company-links .links:hover {
+footer .header_services-wrapper .footer__metalinks-wrapper .services-wrapper .services-links .links:hover,
+footer .header_services-wrapper .footer__metalinks-wrapper .services-wrapper .company-links .links:hover {
   color: #1E6655;
+}
+footer .header_services-wrapper .footer__metalinks-wrapper .footer__icons {
+  display: none;
+}
+@media (min-width: 1280px) {
+  footer .header_services-wrapper .footer__metalinks-wrapper .footer__icons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+}
+footer .header_services-wrapper .footer__metalinks-wrapper .footer__icons svg path {
+  cursor: pointer;
+}
+footer .header_services-wrapper .footer__metalinks-wrapper .footer__icons svg path:hover {
+  fill: #B7CEC9;
 }
 footer .footer__icons {
   display: flex;
@@ -80,6 +138,11 @@ footer .footer__icons {
   gap: 16px;
   padding-top: 8px;
   padding-bottom: 8px;
+}
+@media (min-width: 1280px) {
+  footer .footer__icons {
+    display: none;
+  }
 }
 footer .footer__icons svg path {
   cursor: pointer;
