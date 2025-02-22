@@ -1,9 +1,10 @@
 import "./App.css";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import photos from "./data/photos.json";
 import Card from "./components/Card/Card";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
-import { useState, useEffect } from "react";
 import Filters from "./components/Filters/Filters";
 
 function App() {
@@ -59,7 +60,9 @@ function App() {
               <p className="no-result-text">No results found</p>
             ) : (
               filteredPhotos.map((photo) => (
-                <Card key={photo.id} props={photo} />
+                <Link key={photo.id} to={`/${photo.id}`}>
+                  <Card props={photo} />
+                </Link>
               ))
             )}
           </section>
