@@ -1,9 +1,10 @@
 import "./Navbar.scss";
-import Button from "../Button/Button";
 import { Link } from "react-router-dom";
+import Button from "../Button/Button";
+import HomeButton from "../HomeButton/HomeButton";
 
-const Navbar = ({ isOpen, setIsOpen }) => {
-  
+const Navbar = ({ isOpen, setIsOpen, isHome }) => {
+  console.log(isHome)
   // logic for opening and closing the filter tags dropdown
   function openFilter() {
     setIsOpen(!isOpen);
@@ -12,7 +13,9 @@ const Navbar = ({ isOpen, setIsOpen }) => {
   return (
     <nav>
       <h1><Link to={"/"}>Snaps</Link></h1>
-      <Button text={"Filters"} isOpen={isOpen} onClick={openFilter} />
+      {/* to make the navbar reusable, I added a condition "isHome", if it is true (the current page is HomePage)
+      render the Filters Button, otherwise render the Home Button */}
+      {isHome ? <Button text={"Filters"} isOpen={isOpen} onClick={openFilter} /> : <HomeButton />}
     </nav>
   );
 };

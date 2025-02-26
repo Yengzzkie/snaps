@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Navbar from "../../components/Navbar/Navbar";
 import axios from "axios";
 
 const PhotoPage = () => {
@@ -27,6 +28,7 @@ const PhotoPage = () => {
 
   return (
     <div>
+      <Navbar />
       Photo ID: {id}
       {photoData && (
         <div>

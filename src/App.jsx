@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import photos from "./data/photos.json";
@@ -35,7 +35,7 @@ function App() {
   return (
     <>
       {/* pass the isOpen state variable and setIsOpen for navbar to handle the opening of the filter dropdown */}
-      <Navbar isOpen={isOpen} setIsOpen={setIsOpen} />
+      <Navbar isOpen={isOpen} setIsOpen={setIsOpen} isHome={true} />
 
       <main>
         <Filters

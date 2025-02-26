@@ -2,14 +2,14 @@
 @use "../../styles/partials/padding";
 @use "../../styles/partials/mixins";
 
-.filter-btn {
+.home-btn {
   background: none;
   color: variables.$primary-forestgreen;
-  border: 2px solid variables.$primary-forestgreen;
-  border-radius: 25px;
-  font-weight: normal;
+  font-size: 1.25rem;
+  font-weight: 700;
   letter-spacing: 1px;
   gap: 8px;
+  border: none;
   cursor: pointer;
   @include mixins.flex();
   @include padding.px(16px);
@@ -20,11 +20,10 @@
   }
 
   &:hover {
-    background: variables.$primary-forestgreen;
-    color: variables.$secondary-white;
+    color: variables.$secondary-seagreen;
 
     svg {
-      fill: variables.$secondary-white;
+      fill: variables.$secondary-seagreen;
     }
   }
 }
