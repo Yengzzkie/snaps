@@ -4,7 +4,6 @@ import Button from "../Button/Button";
 import HomeButton from "../HomeButton/HomeButton";
 
 const Navbar = ({ isOpen, setIsOpen, isHome }) => {
-  console.log(isHome)
   // logic for opening and closing the filter tags dropdown
   function openFilter() {
     setIsOpen(!isOpen);

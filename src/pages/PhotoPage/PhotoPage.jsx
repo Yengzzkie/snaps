@@ -3,37 +3,56 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import LikeOutline from "../../assets/images/Like_Outline.svg?react";
 import Navbar from "../../components/Navbar/Navbar";
+import Footer from "../../components/Footer/Footer"
 import Tags from "../../components/Tags/Tags";
 import axios from "axios";
 
 const PhotoPage = () => {
   const { id } = useParams();
   const [photoData, setPhotoData] = useState(null);
+  const [comments, setComments] = useState([]);
   const API_URL = "https://unit-3-project-c5faaab51857.herokuapp.com/";
 
+  // function to get the comments for the photo 
+  async function getComments() {
+    try {
+      const response = await axios.get(
+        `${API_URL}photos/${id}/comments?api_key=${
+          import.meta.env.VITE_API_KEY
+        }`
+      );
+      console.log(response.data);
+      setComments(response.data);
+    } catch (error) {
+      console.error("Failed to get comments:", error);
+    }
+  }
+
+  // function to get the photo data
   async function getPhotoData() {
     try {
       const response = await axios.get(
         `${API_URL}photos/${id}?api_key=${import.meta.env.VITE_API_KEY}`
       );
-
-      console.log(response.data);
+      // console.log(response.data);
       setPhotoData(response.data);
     } catch (error) {
-      console.error({ error });
+      console.error("Failed to get photo data:", error);
     }
   }
 
   // fetch photo data on mount
   useEffect(() => {
     getPhotoData();
-    console.log(photoData);
+    getComments();
+    console.log(photoData, comments);
   }, []);
 
   return (
     <>
       <Navbar />
 
+      {/* photo card container */}
       <div className="photo-page-container">
         {photoData && (
           <div className="image-card">
@@ -42,7 +61,7 @@ const PhotoPage = () => {
             {/* tags container */}
             <div className="tags-container">
               {photoData.tags?.map((tag) => (
-                <Tags key={tag.id} text={tag} cn={"non-clickable-tag"} />
+                <Tags key={tag} text={tag} cn={"non-clickable-tag"} />
               ))}
             </div>
 
@@ -58,10 +77,35 @@ const PhotoPage = () => {
             </div>
 
             {/* photographer name */}
-            <p className="photographer-name">Photo by  {photoData.photographer}</p>
+            <p className="photographer-name">
+              Photo by {photoData.photographer}
+            </p>
           </div>
         )}
       </div>
+
+      {/* comments container */}
+      <div>
+        {comments && (
+          <div className="comments-container">
+            {/* if the comments is greater than one render Comments otherwise Comment */}
+            <p className="comments__comment-count">{comments.length} {comments.length > 1 ? "Comments" : "Comment"}</p>
+            {/* sort the comments from newest to oldest */}
+            {comments.sort((a, b) => b.timestamp - a.timestamp).map((comment) => (
+              <div key={comment.id} className="comments__wrapper">
+                <div className="comments__name-date-container">
+                  <p className="comments__name">{comment.name}</p>
+                  <p className="comment__date">{new Date(comment.timestamp).toLocaleDateString()}</p>
+                </div>
+
+                <p className="comments__comment">{comment.comment}</p>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <Footer />
     </>
   );
 };
