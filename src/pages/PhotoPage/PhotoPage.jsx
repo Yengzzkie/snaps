@@ -12,6 +12,8 @@ const PhotoPage = () => {
   const { id } = useParams();
   const [photoData, setPhotoData] = useState(null);
   const [comments, setComments] = useState([]);
+  const [name, setName] = useState("");
+  const [comment, setComment] = useState("");
   const API_URL = "https://unit-3-project-c5faaab51857.herokuapp.com/";
 
   // function to get the comments for the photo
@@ -33,6 +35,7 @@ const PhotoPage = () => {
   async function getPhotoData() {
     try {
       const response = await axios.get(
+        // dont forget to hardcode the API KEY here
         `${API_URL}photos/${id}?api_key=${import.meta.env.VITE_API_KEY}`
       );
       // console.log(response.data);
@@ -42,7 +45,7 @@ const PhotoPage = () => {
     }
   }
 
-  // fetch photo data on mount
+  // fetch photo data and comments on mount
   useEffect(() => {
     getPhotoData();
     getComments();
@@ -84,6 +87,23 @@ const PhotoPage = () => {
           </div>
         )}
       </div>
+
+
+        {/* Form section */}
+        <form className="form-container">
+          <div className="form__input">
+            <label htmlFor="name">Name</label>
+            <input type="text"/>
+          </div>
+
+          <div className="form__input">
+            <label htmlFor="comment">Comment</label>
+            <textarea name="comment" rows={5}></textarea>
+          </div>
+
+          <button type="submit" className="form__submit-btn">Submit</button>
+        </form>
+
 
       {/* comments section */}
       <div>

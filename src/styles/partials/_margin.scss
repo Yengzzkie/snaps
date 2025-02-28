@@ -1,5 +1,8 @@
-@mixin m($margin: 0px) {
-    margin: $margin $margin $margin $margin;
+@mixin m($mt: 0px, $mr: 0px, $mb: 0px, $ml: 0px) {
+    margin-top: $mt;
+    margin-right: $mr;
+    margin-bottom: $mb;
+    margin-left: $ml;
 }
 
 @mixin mx-auto() {

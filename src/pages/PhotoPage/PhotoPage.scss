@@ -49,6 +49,63 @@
   }
 }
 
+
+.form-container {
+  font-family: "Outfit-Medium";
+  @include mixins.flex($direction: column);
+  @include margin.my(16px);
+  @include padding.px(16px);
+
+  .form__input {
+    width: 100%;
+    @include mixins.flex($direction: column, $align: flex-start);
+    @include margin.my(8px);
+
+    label {
+      @include margin.mb(8px);
+    }
+
+    input, textarea {
+      font-family: "Outfit-Medium";
+      width: 100%;
+      border: 2px solid variables.$secondary-seagreen;
+      border-radius: 6px;
+      outline: none;
+      resize: none;
+      min-height: 30px;
+      min-width: 280px;
+      @include padding.p(8px);
+      // on desktop / tablet = padding 16px x axis, 8px y axis 
+
+      &:focus, &:active {
+        border-color: variables.$primary-forestgreen;
+      }
+
+      &:invalid {
+        border-color: variables.$error;
+      }
+    }
+
+
+  }
+
+  .form__submit-btn {
+    background: variables.$primary-forestgreen;
+    color: variables.$secondary-sage;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    @include margin.m(12px, 6px, 0px, auto);
+    // @include margin.ml(auto);
+    // @include margin.mt(8px);
+    // @include margin.mt(8px);
+    @include padding.py(10px);
+    @include padding.px(16px);
+  }
+}
+
+
+
 .comments-container {
   font-family: "Outfit-Medium", sans-serif;
   @include padding.px(16px);
