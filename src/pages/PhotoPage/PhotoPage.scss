@@ -57,21 +57,5 @@
     @include margin.mb(16px);
   }
 
-  .comments__wrapper {
-    border-top: 1.5px solid variables.$secondary-seagreen;
-    @include padding.py(16px);
-
-    .comments__name-date-container {
-      @include mixins.flex($justify: space-between);
-
-      .comments__name, .comment__date {
-        color: variables.$primary-forestgreen;
-      }
-    }
-
-    .comments__comment {
-      font-size: 18px;
-      @include margin.mt(16px);
-    }
-  }
+  
 }
