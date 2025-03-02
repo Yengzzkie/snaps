@@ -7,6 +7,7 @@ import Footer from "../../components/Footer/Footer";
 import Tags from "../../components/Tags/Tags";
 import axios from "axios";
 import Comment from "../../components/Comment/Comment";
+import Form from "../../components/Form/Form";
 
 const PhotoPage = () => {
   const { id } = useParams();
@@ -15,16 +16,15 @@ const PhotoPage = () => {
   const [name, setName] = useState("");
   const [comment, setComment] = useState("");
   const API_URL = "https://unit-3-project-c5faaab51857.herokuapp.com/";
+  const API_KEY = "d89f073e-41b4-4bf8-a990-a74a9ae9ab1d"; // import.meta.env.VITE_API_KEY;
 
   // function to get the comments for the photo
   async function getComments() {
     try {
       const response = await axios.get(
-        `${API_URL}photos/${id}/comments?api_key=${
-          import.meta.env.VITE_API_KEY
-        }`
+        `${API_URL}photos/${id}/comments?api_key=${API_KEY}`
       );
-      console.log(response.data);
+
       setComments(response.data);
     } catch (error) {
       console.error("Failed to get comments:", error);
@@ -35,13 +35,33 @@ const PhotoPage = () => {
   async function getPhotoData() {
     try {
       const response = await axios.get(
-        // dont forget to hardcode the API KEY here
-        `${API_URL}photos/${id}?api_key=${import.meta.env.VITE_API_KEY}`
+        `${API_URL}photos/${id}?api_key=${API_KEY}`
       );
-      // console.log(response.data);
       setPhotoData(response.data);
     } catch (error) {
       console.error("Failed to get photo data:", error);
+    }
+  }
+
+  // function to post a comment
+  async function postComment(e) {
+    e.preventDefault();
+
+    if (name.trim() === "" || comment.trim() === "") {
+      alert("Please fill out both fields.");
+      setName("");
+      setComment("");
+      return;
+    }
+
+    try {
+      await axios.post(`${API_URL}photos/${id}/comments?api_key=${API_KEY}`, { name, comment });
+
+      getComments(); // fetch the comments again to update the UI
+      setName(""); // clear the name input
+      setComment(""); // clear the comment
+    } catch (error) {
+      console.error("Failed to post comment:", error);
     }
   }
 
@@ -49,7 +69,6 @@ const PhotoPage = () => {
   useEffect(() => {
     getPhotoData();
     getComments();
-    console.log(photoData, comments);
   }, []);
 
   return (
@@ -88,28 +107,20 @@ const PhotoPage = () => {
         )}
       </div>
 
-
-        {/* Form section */}
-        <form className="form-container">
-          <div className="form__input">
-            <label htmlFor="name">Name</label>
-            <input type="text"/>
-          </div>
-
-          <div className="form__input">
-            <label htmlFor="comment">Comment</label>
-            <textarea name="comment" rows={5}></textarea>
-          </div>
-
-          <button type="submit" className="form__submit-btn">Submit</button>
-        </form>
-
+      {/* Form section */}
+      <Form
+        name={name}
+        setName={setName}
+        comment={comment}
+        setComment={setComment}
+        postComment={postComment}
+      />
 
       {/* comments section */}
       <div>
         {comments && (
           <div className="comments-container">
-            {/* if the comments is greater than one render Comments otherwise Comment */}
+            {/* if the comments is greater than one render 'Comments' otherwise 'Comment' */}
             <p className="comments__comment-count">
               {comments.length} {comments.length > 1 ? "Comments" : "Comment"}
             </p>
