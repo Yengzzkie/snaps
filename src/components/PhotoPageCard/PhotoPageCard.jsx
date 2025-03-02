@@ -22,11 +22,14 @@ const PhotoPageCard = ({ photoData }) => {
           </button>
           <p>{photoData.likes} likes</p>
         </div>
-        <p>{new Date(photoData.timestamp).toLocaleDateString()}</p>
+
+        <p className="photographer-name">Photo by {photoData.photographer}</p>
+
+        <p className="date">{new Date(photoData.timestamp).toLocaleDateString()}</p>
       </div>
 
       {/* photographer name */}
-      <p className="photographer-name">Photo by {photoData.photographer}</p>
+      {/* <p className="photographer-name">Photo by {photoData.photographer}</p> */}
     </div>
   );
 };

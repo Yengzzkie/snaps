@@ -1,10 +1,15 @@
 @use "../../styles/partials/margin";
 @use "../../styles/partials/padding";
+@use "../../styles/partials/mixins";
 @use "../../styles/partials/typography";
 
 .comments-container {
     font-family: "Outfit-Medium", sans-serif;
     @include padding.px(16px);
+    @include mixins.tablet {
+      @include padding.px(24px);
+      @include margin.mb(32px);
+    }
   
     .comments__comment-count {
       @include margin.mb(16px);

@@ -19,16 +19,24 @@
     gap: 8px;
     @include mixins.flex($justify: start);
     @include padding.p(16px);
+    @include mixins.tablet {
+      gap: 16px;
+    }
   }
 
   .likes-date-container {
+    flex-wrap: wrap;
     @include mixins.flex($justify: space-between);
     @include padding.px(16px);
-
+    @include mixins.tablet {
+      @include padding.pb(10px);
+    }
+  
     .likes {
+      order: 1;
       gap: 6px;
       @include mixins.flex();
-
+  
       button {
         background: none;
         border: none;
@@ -36,9 +44,20 @@
         cursor: pointer;
       }
     }
-  }
 
-  .photographer-name {
-    @include padding.p(16px);
+    .date {
+      order: 2;
+    }
+  
+    .photographer-name {
+      order: 3;
+      width: 100%;
+      @include padding.p(16px);
+      @include mixins.tablet {
+        order: 2;
+        width: auto;
+      }
+    }
   }
+  
 }
