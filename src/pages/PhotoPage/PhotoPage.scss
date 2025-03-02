@@ -1,0 +1,15 @@
+@use "../../styles/partials/margin";
+@use "../../styles/partials/padding";
+@use "../../styles/partials/typography";
+@use "../../styles/partials/mixins";
+@use "../../styles/partials/variables";
+
+.photo-page-container {
+  font-family: "Outfit-Medium", sans-serif;
+  @include padding.py(24px);
+  @include padding.px(16px);
+
+  @include mixins.tablet {
+    @include padding.p(24px);
+  }
+}

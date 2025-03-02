@@ -1,0 +1,27 @@
+@use "../../styles/partials/variables";
+@use "../../styles/partials/padding";
+@use "../../styles/partials/margin";
+@use "../../styles/partials/mixins";
+
+.comments__wrapper {
+  border-top: 1.5px solid variables.$secondary-seagreen;
+  @include padding.py(16px);
+
+  .comments__name-date-container {
+    @include mixins.flex($justify: space-between);
+
+    .comments__name,
+    .comment__date {
+      color: variables.$primary-forestgreen;
+
+      @include mixins.tablet {
+        font-size: 12px;
+      }
+    }
+  }
+
+  .comments__comment {
+    font-size: 18px;
+    @include margin.mt(16px);
+  }
+}

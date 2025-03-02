@@ -6,7 +6,7 @@ const Button = ({ text, onClick, setIsOpen, isOpen }) => {
   }
 
   return (
-    <button onClick={handleOpen} className={`${isOpen ? "active" : ""}`}>
+    <button onClick={handleOpen} className={`filter-btn ${isOpen ? "active" : ""}`}>
       {text}
       <svg
         width="15"

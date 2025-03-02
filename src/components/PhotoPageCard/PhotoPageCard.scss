@@ -1,0 +1,69 @@
+@use "../../styles/partials/margin";
+@use "../../styles/partials/padding";
+@use "../../styles/partials/typography";
+@use "../../styles/partials/mixins";
+@use "../../styles/partials/variables";
+
+.image-card {
+  width: 100%;
+  border: 2px solid variables.$secondary-seagreen;
+  border-radius: 12px;
+  max-width: 900px;
+  @include margin.mx(auto);
+
+
+  img {
+    border-radius: 10px 10px 0 0;
+    width: 100%;
+  }
+
+  .tags-container {
+    gap: 8px;
+    @include mixins.flex($justify: start);
+    @include padding.p(16px);
+    @include mixins.tablet {
+      gap: 16px;
+    }
+  }
+
+  .likes-date-container {
+    flex-wrap: wrap;
+    @include mixins.flex($justify: space-between);
+    @include padding.px(16px);
+    @include mixins.tablet {
+      @include padding.pb(10px);
+    }
+  
+    .likes {
+      order: 1;
+      gap: 6px;
+      @include mixins.flex();
+  
+      button {
+        background: none;
+        border: none;
+        line-height: 0;
+        cursor: pointer;
+      }
+    }
+
+    .date {
+      order: 2;
+    }
+  
+    .photographer-name {
+      order: 3;
+      width: 100%;
+      @include padding.py(16px);
+      @include mixins.tablet {
+        order: 2;
+        width: auto;
+      }
+      @include mixins.desktop {
+        order: 2;
+        width: auto;
+      }
+    }
+  }
+  
+}

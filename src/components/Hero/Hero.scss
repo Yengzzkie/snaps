@@ -1,0 +1,38 @@
+@use "../../styles/partials/variables";
+@use "../../styles/partials/padding";
+@use "../../styles/partials/margin";
+@use "../../styles/partials/mixins";
+@use "../../styles/partials/globals";
+@use "../../styles/partials/typography";
+
+.hero__header {
+  font-family: "Outfit-Light", sans-serif;
+  font-weight: 300;
+
+  @include mixins.desktop {
+    font-size: 20px;
+  }
+}
+
+.hero__content {
+  font-family: "Newsreader-Light", sans-serif;
+  font-weight: 300;
+  font-size: 32px;
+  line-height: 54px;
+  @include margin.mt(24px);
+
+  .hero__content-emphasized {
+    font-family: "Newsreader-LightItalic", sans-serif;
+  }
+
+  @include mixins.tablet {
+    font-size: 52px;
+    line-height: 66px;
+  }
+
+  @include mixins.desktop {
+    font-size: 52px;
+    line-height: 66px;
+    max-width: 50vw;
+  }
+}
