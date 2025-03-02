@@ -5,10 +5,15 @@
 
 .comments-container {
     font-family: "Outfit-Medium", sans-serif;
+    max-width: 900px;
+    @include margin.mx(auto);
     @include padding.px(16px);
     @include mixins.tablet {
       @include padding.px(24px);
       @include margin.mb(32px);
+    }
+    @include mixins.desktop {
+      @include padding.px(0px);
     }
   
     .comments__comment-count {

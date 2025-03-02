@@ -8,7 +8,9 @@
   width: 100%;
   border: 2px solid variables.$secondary-seagreen;
   border-radius: 12px;
+  max-width: 900px;
   @include margin.mx(auto);
+
 
   img {
     border-radius: 10px 10px 0 0;
@@ -52,8 +54,12 @@
     .photographer-name {
       order: 3;
       width: 100%;
-      @include padding.p(16px);
+      @include padding.py(16px);
       @include mixins.tablet {
+        order: 2;
+        width: auto;
+      }
+      @include mixins.desktop {
         order: 2;
         width: auto;
       }

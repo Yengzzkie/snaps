@@ -6,12 +6,16 @@
 
 .form-container {
   font-family: "Outfit-Medium";
+  max-width: 900px;
   @include mixins.flex($direction: column);
+  @include margin.mx(auto);
   @include margin.my(16px);
   @include padding.px(16px);
-
   @include mixins.tablet {
     @include padding.px(24px);
+  }
+  @include mixins.desktop {
+    @include padding.px(0px);
   }
 
   .form__input {
@@ -57,6 +61,11 @@
     @include padding.py(10px);
     @include padding.px(16px);
     @include mixins.tablet {
+      font-size: 16px;
+      @include padding.py(8px);
+      @include padding.px(22px);
+    }
+    @include mixins.desktop {
       font-size: 16px;
       @include padding.py(8px);
       @include padding.px(22px);
