@@ -1,13 +1,12 @@
 import "./PhotoPage.scss";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import LikeOutline from "../../assets/images/Like_Outline.svg?react";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
-import Tags from "../../components/Tags/Tags";
 import axios from "axios";
-import Comment from "../../components/Comment/Comment";
 import Form from "../../components/Form/Form";
+import PhotoPageCard from "../../components/PhotoPageCard/PhotoPageCard";
+import CommentsSection from "../../components/CommentsSection/CommentsSection";
 
 const PhotoPage = () => {
   const { id } = useParams();
@@ -55,7 +54,10 @@ const PhotoPage = () => {
     }
 
     try {
-      await axios.post(`${API_URL}photos/${id}/comments?api_key=${API_KEY}`, { name, comment });
+      await axios.post(`${API_URL}photos/${id}/comments?api_key=${API_KEY}`, {
+        name,
+        comment,
+      });
 
       getComments(); // fetch the comments again to update the UI
       setName(""); // clear the name input
@@ -77,34 +79,7 @@ const PhotoPage = () => {
 
       {/* photo card container */}
       <div className="photo-page-container">
-        {photoData && (
-          <div className="image-card">
-            <img src={photoData.photo} alt={photoData.photoDescription} />
-
-            {/* tags container */}
-            <div className="tags-container">
-              {photoData.tags?.map((tag) => (
-                <Tags key={tag} text={tag} cn={"non-clickable-tag"} />
-              ))}
-            </div>
-
-            {/* likes and date section */}
-            <div className="likes-date-container">
-              <div className="likes">
-                <button>
-                  <LikeOutline />
-                </button>
-                <p>{photoData.likes} likes</p>
-              </div>
-              <p>{new Date(photoData.timestamp).toLocaleDateString()}</p>
-            </div>
-
-            {/* photographer name */}
-            <p className="photographer-name">
-              Photo by {photoData.photographer}
-            </p>
-          </div>
-        )}
+        {photoData && <PhotoPageCard photoData={photoData} />}
       </div>
 
       {/* Form section */}
@@ -117,23 +92,7 @@ const PhotoPage = () => {
       />
 
       {/* comments section */}
-      <div>
-        {comments && (
-          <div className="comments-container">
-            {/* if the comments is greater than one render 'Comments' otherwise 'Comment' */}
-            <p className="comments__comment-count">
-              {comments.length} {comments.length > 1 ? "Comments" : "Comment"}
-            </p>
-            {/* sort the comments from newest to oldest */}
-            {comments
-              .sort((a, b) => b.timestamp - a.timestamp)
-              // then map the sorted comments
-              .map((comment) => (
-                <Comment key={comment.id} comment={comment} />
-              ))}
-          </div>
-        )}
-      </div>
+      <div>{comments && <CommentsSection comments={comments} />}</div>
 
       <Footer />
     </>

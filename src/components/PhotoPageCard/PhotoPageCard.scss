@@ -1,0 +1,44 @@
+@use "../../styles/partials/margin";
+@use "../../styles/partials/padding";
+@use "../../styles/partials/typography";
+@use "../../styles/partials/mixins";
+@use "../../styles/partials/variables";
+
+.image-card {
+  width: 100%;
+  border: 2px solid variables.$secondary-seagreen;
+  border-radius: 12px;
+  @include margin.mx(auto);
+
+  img {
+    border-radius: 10px 10px 0 0;
+    width: 100%;
+  }
+
+  .tags-container {
+    gap: 8px;
+    @include mixins.flex($justify: start);
+    @include padding.p(16px);
+  }
+
+  .likes-date-container {
+    @include mixins.flex($justify: space-between);
+    @include padding.px(16px);
+
+    .likes {
+      gap: 6px;
+      @include mixins.flex();
+
+      button {
+        background: none;
+        border: none;
+        line-height: 0;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .photographer-name {
+    @include padding.p(16px);
+  }
+}
