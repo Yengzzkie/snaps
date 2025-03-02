@@ -29,7 +29,7 @@ const Form = ({ postComment, name, setName, comment, setComment }) => {
       <button
         type="submit"
         className="form__submit-btn"
-        disabled={true}
+        disabled={name.trim() === "" || comment.trim() === ""}
       >
         Submit
       </button>

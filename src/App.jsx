@@ -6,6 +6,7 @@ import Card from "./components/Card/Card";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import Filters from "./components/Filters/Filters";
+import Hero from "./components/Hero/Hero";
 
 function App() {
   const [filteredPhotos, setFilteredPhotos] = useState(photos);
@@ -43,17 +44,10 @@ function App() {
           selectedTag={selectedTag}
           getSelectedTag={getSelectedTag}
         />
+
         <div className="container">
-          <section>
-            <h4 className="hero__header">Our Mission:</h4>
-            <p className="hero__content">
-              Provide photographers a space to share photos of the neighborhoods
-              they cherish,{" "}
-              <span className="hero__content-emphasized">
-                expressed in their unique style.
-              </span>
-            </p>
-          </section>
+          {/* hero section */}
+          <Hero />
 
           <section className={`card-container ${isOpen ? "two-cols" : ""}`}>
             {filteredPhotos.length === 0 ? (
