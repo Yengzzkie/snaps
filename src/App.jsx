@@ -10,27 +10,11 @@ import Hero from "./components/Hero/Hero";
 
 function App() {
   const [filteredPhotos, setFilteredPhotos] = useState(photos);
-  const [selectedTag, setSelectedTag] = useState([]);
+  const [selectedTag, setSelectedTag] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
 
-  // logic for setting the selected filter tags
-  function getSelectedTag(tag) {
-    // check if the selected tags already exists in the selectedTag array
-    const isExist = selectedTag.includes(tag);
-
-    if (isExist) {
-      setSelectedTag(selectedTag.filter((t) => t !== tag)); // if it already exists, remove it from the array by toggling the tag
-    } else {
-      setSelectedTag([...selectedTag, tag]); // if it doesnt exist yet, add it to the array
-    }
-  }
-
   useEffect(() => {
-    setFilteredPhotos(
-      photos.filter((photo) =>
-        selectedTag.every((tag) => photo.tags.includes(tag))
-      )
-    ); // filter the photos based on the selected tags
+    setFilteredPhotos(photos.filter((photo) => photo.tags.includes(selectedTag) || selectedTag === null)); // filter the photos based on the selected tag or if no tag is selected set to null to show all photos
   }, [selectedTag]); // use selectedTag as dependency so when it changes, the setFilterdPhotos will update too
 
   return (
@@ -42,7 +26,7 @@ function App() {
         <Filters
           isOpen={isOpen}
           selectedTag={selectedTag}
-          getSelectedTag={getSelectedTag}
+          setSelectedTag={setSelectedTag}
         />
 
         <div className="container">

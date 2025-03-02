@@ -2,10 +2,10 @@ import "./Filters.scss";
 import Tags from "../Tags/Tags";
 import tags from "../../data/tags.json";
 
-const Filters = ({ isOpen, selectedTag, getSelectedTag }) => {
+const Filters = ({ isOpen, selectedTag, setSelectedTag }) => {
 
     function selectTagHandler(tag) {
-        getSelectedTag(tag);
+      setSelectedTag(selectedTag === tag ? null : tag); // this condition is to check if the selected tag is the same as the tag clicked, if it is then set to null to toggle off the selected tag
     }
 
     return (
@@ -22,9 +22,9 @@ const Filters = ({ isOpen, selectedTag, getSelectedTag }) => {
                 <Tags
                   text={tag}
                   cn={`clickable-tag ${
-                    selectedTag.includes(tag) ? "selected" : ""
+                    selectedTag === tag ? "selected" : ""
                   }`}
-                  selected={selectedTag.includes(tag)}
+                  selected={selectedTag}
                 />
               </div>
             ))}
