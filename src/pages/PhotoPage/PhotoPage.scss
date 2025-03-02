@@ -101,6 +101,11 @@
     // @include margin.mt(8px);
     @include padding.py(10px);
     @include padding.px(16px);
+
+    &:hover {
+      background: variables.$secondary-seagreen;
+      color: variables.$primary-forestgreen;
+    }
   }
 }
 
