@@ -1,21 +1,31 @@
 import "./App.scss";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import photos from "./data/photos.json";
-import Card from "./components/Card/Card";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import Filters from "./components/Filters/Filters";
 import Hero from "./components/Hero/Hero";
+import axios from "axios";
+import PhotosGrid from "./components/PhotosGrid/PhotosGrid";
 
 function App() {
-  const [filteredPhotos, setFilteredPhotos] = useState(photos);
   const [selectedTag, setSelectedTag] = useState(null);
+  const [photos, setPhotos] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
+  const API_URL = "https://unit-3-project-c5faaab51857.herokuapp.com/";
+  const API_KEY = "d89f073e-41b4-4bf8-a990-a74a9ae9ab1d"; // import.meta.env.VITE_API_KEY;
+
+  async function getPhotos() { // fetch the photos
+    try {
+      const response = await axios.get(`${API_URL}photos?api_key=${API_KEY}`);
+      setPhotos(response.data);
+    } catch (error) {
+      console.error("Failed to get photos:", error);
+    }
+  }
 
   useEffect(() => {
-    setFilteredPhotos(photos.filter((photo) => photo.tags.includes(selectedTag) || selectedTag === null)); // filter the photos based on the selected tag or if no tag is selected set to null to show all photos
-  }, [selectedTag]); // use selectedTag as dependency so when it changes, the setFilterdPhotos will update too
+    getPhotos();
+  }, [selectedTag]);
 
   return (
     <>
@@ -23,6 +33,7 @@ function App() {
       <Navbar isOpen={isOpen} setIsOpen={setIsOpen} isHome={true} />
 
       <main>
+        {/* filter tags */}
         <Filters
           isOpen={isOpen}
           selectedTag={selectedTag}
@@ -33,17 +44,8 @@ function App() {
           {/* hero section */}
           <Hero />
 
-          <section className={`card-container ${isOpen ? "two-cols" : ""}`}>
-            {filteredPhotos.length === 0 ? (
-              <p className="no-result-text">No results found</p>
-            ) : (
-              filteredPhotos.map((photo) => (
-                <Link key={photo.id} to={`/${photo.id}`}>
-                  <Card photo={photo} />
-                </Link>
-              ))
-            )}
-          </section>
+          {/* photos container */}
+          <PhotosGrid photos={photos} isOpen={isOpen} selectedTag={selectedTag} />
         </div>
       </main>
 
