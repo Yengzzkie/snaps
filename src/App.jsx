@@ -39,7 +39,7 @@ function App() {
             ) : (
               filteredPhotos.map((photo) => (
                 <Link key={photo.id} to={`/${photo.id}`}>
-                  <Card props={photo} />
+                  <Card photo={photo} />
                 </Link>
               ))
             )}

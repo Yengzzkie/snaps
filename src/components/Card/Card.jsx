@@ -1,17 +1,17 @@
 import "./Card.scss"
 import Tags from "../Tags/Tags";
 
-const Card = ({ props }) => {
+const Card = ({ photo }) => {
   return (
     <div className="card">
 
       <div className="card__image-container">
-        <img src={props.photo} alt={props.photoDescription} />
-        <span className="card__photographer-name">{props.photographer}</span>
+        <img src={photo.photo} alt={photo.photoDescription} />
+        <span className="card__photographer-name">{photo.photographer}</span>
       </div>
 
       <div className="card__tags-container">
-        {props.tags.map((tag, index) => (
+        {photo.tags.map((tag, index) => (
           <Tags key={index} cn={"non-clickable-tag"} text={tag} />
         ))}
       </div>
