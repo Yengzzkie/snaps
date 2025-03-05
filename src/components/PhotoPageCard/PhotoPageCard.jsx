@@ -27,9 +27,6 @@ const PhotoPageCard = ({ photoData }) => {
 
         <p className="date">{new Date(photoData.timestamp).toLocaleDateString()}</p>
       </div>
-
-      {/* photographer name */}
-      {/* <p className="photographer-name">Photo by {photoData.photographer}</p> */}
     </div>
   );
 };

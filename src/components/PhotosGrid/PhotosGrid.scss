@@ -1,0 +1,27 @@
+@use "../../styles/partials/padding";
+@use "../../styles/partials/margin";
+@use "../../styles/partials/mixins";
+
+.card-container {
+    gap: 16px;
+    @include mixins.grid($grid-cols: 1fr);
+    @include padding.pt(64px);
+
+    @include mixins.tablet {
+      @include mixins.grid($grid-cols: 1fr 1fr);
+    }
+
+    @include mixins.desktop {
+      @include mixins.grid($grid-cols: 1fr 1fr 1fr);
+      gap: 24px;
+
+      &.two-cols {
+        @include mixins.grid($grid-cols: 1fr 1fr);
+      }
+    }
+
+    .no-result-text {
+      font-size: 32px;
+      text-align: center;
+    }
+  }
