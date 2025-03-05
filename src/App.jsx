@@ -34,11 +34,7 @@ function App() {
 
       <main>
         {/* filter tags */}
-        <Filters
-          isOpen={isOpen}
-          selectedTag={selectedTag}
-          setSelectedTag={setSelectedTag}
-        />
+        <Filters isOpen={isOpen} selectedTag={selectedTag} setSelectedTag={setSelectedTag} />
 
         <div className="container">
           {/* hero section */}
