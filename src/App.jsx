@@ -10,9 +10,19 @@ import PhotosGrid from "./components/PhotosGrid/PhotosGrid";
 function App() {
   const [selectedTag, setSelectedTag] = useState(null);
   const [photos, setPhotos] = useState([]);
+  const [tags, setTags] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const API_URL = "https://unit-3-project-c5faaab51857.herokuapp.com/";
   const API_KEY = "d89f073e-41b4-4bf8-a990-a74a9ae9ab1d"; // import.meta.env.VITE_API_KEY;
+
+  async function getTags() { // fetch the photos
+    try {
+      const response = await axios.get(`${API_URL}tags?api_key=${API_KEY}`);
+      setTags(response.data);
+    } catch (error) {
+      console.error("Failed to get tags:", error);
+    }
+  }
 
   async function getPhotos() { // fetch the photos
     try {
@@ -25,6 +35,7 @@ function App() {
 
   useEffect(() => {
     getPhotos();
+    getTags();
   }, [selectedTag]);
 
   return (
@@ -34,7 +45,7 @@ function App() {
 
       <main>
         {/* filter tags */}
-        <Filters isOpen={isOpen} selectedTag={selectedTag} setSelectedTag={setSelectedTag} />
+        <Filters isOpen={isOpen} selectedTag={selectedTag} setSelectedTag={setSelectedTag} tags={tags} />
 
         <div className="container">
           {/* hero section */}

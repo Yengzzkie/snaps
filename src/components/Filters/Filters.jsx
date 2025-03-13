@@ -1,8 +1,8 @@
 import "./Filters.scss";
 import Tags from "../Tags/Tags";
-import tags from "../../data/tags.json";
 
-const Filters = ({ isOpen, selectedTag, setSelectedTag }) => {
+
+const Filters = ({ isOpen, selectedTag, setSelectedTag, tags }) => {
 
     function selectTagHandler(tag) {
       setSelectedTag(selectedTag === tag ? null : tag); // this condition is to check if the selected tag is the same as the tag clicked, if it is then set to null to toggle off the selected tag
