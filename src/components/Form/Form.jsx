@@ -1,6 +1,6 @@
 import "./Form.scss";
 
-const Form = ({ postComment, name, setName, comment, setComment }) => {
+const Form = ({ postComment, name, setName, comment, setComment, error, setError }) => {
   return (
     <form className="form-container" onSubmit={postComment}>
       <div className="form__input">
@@ -22,14 +22,18 @@ const Form = ({ postComment, name, setName, comment, setComment }) => {
           placeholder="Type your comment..."
           rows={5}
           value={comment}
-          onChange={(e) => setComment(e.target.value)}
+          onChange={(e) => {
+            setComment(e.target.value);
+            setError("")
+          }}
         ></textarea>
+        <p className="error-message">{error}</p>
       </div>
 
       <button
         type="submit"
         className="form__submit-btn"
-        disabled={name.trim() === "" || comment.trim() === ""}
+        disabled={name.trim() === "" || comment.trim() === ""} // disable the button if fields are empty
       >
         Submit
       </button>

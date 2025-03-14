@@ -49,6 +49,13 @@
         border-color: variables.$error;
       }
     }
+
+    .error-message {
+      color: red;
+      font-family: "Outfit-Light";
+      font-style: italic;
+      @include margin.m(3px, 0, 0, 5px);
+    }
   }
 
   .form__submit-btn {

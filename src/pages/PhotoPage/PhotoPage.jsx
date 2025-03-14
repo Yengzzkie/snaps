@@ -14,16 +14,16 @@ const PhotoPage = () => {
   const [comments, setComments] = useState([]);
   const [name, setName] = useState("");
   const [comment, setComment] = useState("");
-  const API_URL = "https://unit-3-project-c5faaab51857.herokuapp.com/";
-  const API_KEY = "d89f073e-41b4-4bf8-a990-a74a9ae9ab1d"; // import.meta.env.VITE_API_KEY;
+  const [errorMessage, setErrorMessage] = useState("");
+  const API_URL = "http://localhost:8080/";
+  // const API_KEY = "d89f073e-41b4-4bf8-a990-a74a9ae9ab1d"; // import.meta.env.VITE_API_KEY;
 
   // function to get the comments for the photo
   async function getComments() {
     try {
       const response = await axios.get(
-        `${API_URL}photos/${id}/comments?api_key=${API_KEY}`
+        `${API_URL}photos/${id}/comments`
       );
-
       setComments(response.data);
     } catch (error) {
       console.error("Failed to get comments:", error);
@@ -34,7 +34,7 @@ const PhotoPage = () => {
   async function getPhotoData() {
     try {
       const response = await axios.get(
-        `${API_URL}photos/${id}?api_key=${API_KEY}`
+        `${API_URL}photos/${id}`
       );
       setPhotoData(response.data);
     } catch (error) {
@@ -54,16 +54,17 @@ const PhotoPage = () => {
     }
 
     try {
-      await axios.post(`${API_URL}photos/${id}/comments?api_key=${API_KEY}`, {
-        name,
-        comment,
-      });
+      await axios.post(`${API_URL}photos/${id}/comments`, { name,comment });
 
       getComments(); // fetch the comments again to update the UI
       setName(""); // clear the name input
       setComment(""); // clear the comment
     } catch (error) {
       console.error("Failed to post comment:", error);
+      // display an error if the comment is less than 3 characters
+      if (error.status === 400) {
+        setErrorMessage(error.response?.data?.message)
+      }
     }
   }
 
@@ -89,7 +90,10 @@ const PhotoPage = () => {
         comment={comment}
         setComment={setComment}
         postComment={postComment}
+        error={errorMessage}
+        setError={setErrorMessage}
       />
+      
 
       {/* comments section */}
       <div>{comments && <CommentsSection comments={comments} />}</div>

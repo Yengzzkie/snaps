@@ -12,12 +12,12 @@ function App() {
   const [photos, setPhotos] = useState([]);
   const [tags, setTags] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
-  const API_URL = "https://unit-3-project-c5faaab51857.herokuapp.com/";
-  const API_KEY = "d89f073e-41b4-4bf8-a990-a74a9ae9ab1d"; // import.meta.env.VITE_API_KEY;
+  const API_URL = "http://localhost:8080/";
+  // const API_KEY = "d89f073e-41b4-4bf8-a990-a74a9ae9ab1d"; // import.meta.env.VITE_API_KEY;
 
-  async function getTags() { // fetch the photos
+  async function getTags() { // fetch the tags
     try {
-      const response = await axios.get(`${API_URL}tags?api_key=${API_KEY}`);
+      const response = await axios.get(`${API_URL}tags`);
       setTags(response.data);
     } catch (error) {
       console.error("Failed to get tags:", error);
@@ -26,7 +26,7 @@ function App() {
 
   async function getPhotos() { // fetch the photos
     try {
-      const response = await axios.get(`${API_URL}photos?api_key=${API_KEY}`);
+      const response = await axios.get(`${API_URL}photos`);
       setPhotos(response.data);
     } catch (error) {
       console.error("Failed to get photos:", error);
