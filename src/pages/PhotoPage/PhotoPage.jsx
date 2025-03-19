@@ -15,8 +15,7 @@ const PhotoPage = () => {
   const [name, setName] = useState("");
   const [comment, setComment] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const API_URL = "http://localhost:8080/";
-  // const API_KEY = "d89f073e-41b4-4bf8-a990-a74a9ae9ab1d"; // import.meta.env.VITE_API_KEY;
+  const API_URL = import.meta.env.VITE_API_URL; // VITE_API_URL=http://localhost:8080/
 
   // function to get the comments for the photo
   async function getComments() {
@@ -45,13 +44,6 @@ const PhotoPage = () => {
   // function to post a comment
   async function postComment(e) {
     e.preventDefault();
-
-    if (name.trim() === "" || comment.trim() === "") {
-      alert("Please fill out both fields.");
-      setName("");
-      setComment("");
-      return;
-    }
 
     try {
       await axios.post(`${API_URL}photos/${id}/comments`, { name,comment });

@@ -12,8 +12,7 @@ function App() {
   const [photos, setPhotos] = useState([]);
   const [tags, setTags] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
-  const API_URL = "http://localhost:8080/";
-  // const API_KEY = "d89f073e-41b4-4bf8-a990-a74a9ae9ab1d"; // import.meta.env.VITE_API_KEY;
+  const API_URL = import.meta.env.VITE_API_URL; // VITE_API_URL=http://localhost:8080/
 
   async function getTags() { // fetch the tags
     try {
